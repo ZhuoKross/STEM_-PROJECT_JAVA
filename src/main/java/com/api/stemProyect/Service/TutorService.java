@@ -18,7 +18,7 @@ public class TutorService implements Idao<TutoresEntity, Long>{
 
     @Override
     public List<TutoresEntity> findAll(){
-        return TutoresRepository.findAll();
+        return tutoresRepository.findAll();
     }
 
     @Override

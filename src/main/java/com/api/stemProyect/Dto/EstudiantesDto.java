@@ -9,10 +9,10 @@ import lombok.AllArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EstudiantesDto {
-    private Long id_estudiante;
+    private Long id;
     private String nombres;
     private  String apellidos;
     private String email;
     private String contraseña;
-    private Long num_estudiantes;
+    private Long num_tutores;
 }
