@@ -31,6 +31,6 @@ public class EstudiantesEntity implements Serializable {
     @Column(name = "contraseña", nullable = false)
     private String contraseña;
 
-    @Column(name = "num_tutores", nullable = false)
+    @Column(name = "num_tutores")
     public Long num_tutores;
 }
