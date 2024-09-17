@@ -1,8 +1,7 @@
 package com.api.stemProyect.Controller;
 
 import com.api.stemProyect.Dto.ArticlePubMedDTO;
-import com.api.stemProyect.Scrapes.ScrapeService;
-import jakarta.persistence.GeneratedValue;
+import com.api.stemProyect.Service.Scrapes.ScrapeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.api.stemProyect.Dto.SearchTermDTO;

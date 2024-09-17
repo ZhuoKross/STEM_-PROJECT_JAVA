@@ -1,6 +1,8 @@
 package com.api.stemProyect.Service;
 
+import com.api.stemProyect.Entity.ContentEntity;
 import com.api.stemProyect.Entity.EstudiantesEntity;
+import com.api.stemProyect.Repository.ContenRepository;
 import com.api.stemProyect.Repository.EstudiantesRepository;
 import com.api.stemProyect.Service.Dao.Idao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ public class EstudiantesService implements Idao<EstudiantesEntity, Long>{
 
     @Autowired
     EstudiantesRepository estudiantesRepository;
+    ContenRepository contenRepository;
 
     @Override
     public List<EstudiantesEntity> findAll() {
@@ -44,6 +47,17 @@ public class EstudiantesService implements Idao<EstudiantesEntity, Long>{
     @Override
     public void create(EstudiantesEntity entity){
         this.estudiantesRepository.save(entity);
+    }
+
+    // Para la operación de Guardar contenidos Favoritos
+    public void saveContent (long idUser, Long idContent){
+
+        EstudiantesEntity estudiante = estudiantesRepository.findById(idUser).orElseThrow();
+        ContentEntity content = contenRepository.findById(idContent).orElseThrow();
+
+        estudiante.getContenidos().add(content);
+        estudiantesRepository.save(estudiante);
+
     }
 
 }

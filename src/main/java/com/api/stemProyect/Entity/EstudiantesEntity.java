@@ -5,7 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.swing.text.AbstractDocument;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 
 @NoArgsConstructor
@@ -33,4 +37,19 @@ public class EstudiantesEntity implements Serializable {
 
     @Column(name = "num_tutores")
     public Long num_tutores;
+
+    @OneToOne(targetEntity = CarreraEntity.class)
+    private CarreraEntity carrera;
+
+    @ManyToMany(targetEntity = TutoriaEntity.class, fetch = FetchType.LAZY)
+    @JoinTable(name = "estudiantes_tutoria", joinColumns =  @JoinColumn(name = "fk_estudiante_id"), inverseJoinColumns = @JoinColumn(name = "fk_tutoria_id"))
+    private List<TutoriaEntity> tutoriaInscrita;
+
+    @ManyToMany(targetEntity = ContentEntity.class, fetch = FetchType.LAZY)
+    @JoinTable(name = "estudiante_contenido_favorito", joinColumns = @JoinColumn(name = "fk_estudiante_id"), inverseJoinColumns = @JoinColumn(name = "fk_content_id"))
+    private List<ContentEntity> contenidoGuardado;
+
+    private Set<ContentEntity> contenidos = new HashSet<>();
+
+
 }

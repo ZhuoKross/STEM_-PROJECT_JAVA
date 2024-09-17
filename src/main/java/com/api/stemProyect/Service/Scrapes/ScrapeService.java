@@ -1,4 +1,4 @@
-package com.api.stemProyect.Scrapes;
+package com.api.stemProyect.Service.Scrapes;
 
 import org.jsoup.Jsoup;
 import com.api.stemProyect.Dto.ArticlePubMedDTO;

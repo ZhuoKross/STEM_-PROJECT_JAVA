@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
 
 
 @NoArgsConstructor
@@ -33,4 +34,12 @@ public class TutoresEntity implements Serializable {
 
     @Column(name = "num_estudiantes")
     public Long num_estudiantes;
+
+    @ManyToMany(targetEntity = TutoriaEntity.class, fetch = FetchType.LAZY)
+    @JoinTable(name = "profesor_tutoria", joinColumns = @JoinColumn(name = "fk_profesor_id"), inverseJoinColumns = @JoinColumn(name = "fk_tutoria_id"))
+    private List<TutoresEntity> tutoriaACargo;
+
+    @ManyToMany(targetEntity = CarreraEntity.class, fetch = FetchType.LAZY)
+    @JoinTable(name = "profesor_carrera", joinColumns = @JoinColumn(name = "fk_profesor_id"), inverseJoinColumns = @JoinColumn(name = "fk_carrera_id"))
+    private List<CarreraEntity> carreraImpartida;
 }
