@@ -17,6 +17,7 @@ public class EstudiantesService implements Idao<EstudiantesEntity, Long>{
 
     @Override
     public List<EstudiantesEntity> findAll() {
+
         return estudiantesRepository.findAll();
     }
 
@@ -43,6 +44,7 @@ public class EstudiantesService implements Idao<EstudiantesEntity, Long>{
 
     @Override
     public void create(EstudiantesEntity entity){
+
         this.estudiantesRepository.save(entity);
     }
 

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 import java.io.Serializable;
 
 
@@ -33,4 +34,5 @@ public class EstudiantesEntity implements Serializable {
 
     @Column(name = "num_tutores", nullable = false)
     public Long num_tutores;
+
 }
