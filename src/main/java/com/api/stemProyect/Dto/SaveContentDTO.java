@@ -4,10 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class RolesDto {
-    private Long id_rol;
-    private String Rol;
+@NoArgsConstructor
+public class SaveContentDTO {
+
+    private Long id_estudiante;
+    private Long id_content;
+
 }

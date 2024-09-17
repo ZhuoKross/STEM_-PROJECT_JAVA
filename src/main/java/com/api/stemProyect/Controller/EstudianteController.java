@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/estudiantes")
+@RequestMapping(path = "/api/estudiantes",method = {RequestMethod.DELETE,RequestMethod.GET})
+@CrossOrigin(origins = "*")
 public class EstudianteController {
     @Autowired
     EstudiantesBusiness estudiantesBusiness;
@@ -21,10 +22,23 @@ public class EstudianteController {
     }
 
     @PostMapping("/create")
+   // @CrossOrigin(origins = "http://localhost:5173", methods = {RequestMethod.POST})
     public void create(@RequestBody EstudiantesDto estudiantesDto){
 
+        //String nombreEstudiante = estudiantesDto.getNombres();
+        //String apellidoEstudiante = estudiantesDto.getApellidos();
+        //String emailEstudiante = estudiantesDto.getEmail();
+        //String passwordEstudiante = estudiantesDto.getContraseña();
 
-        //estudiantesBusiness.create(estudiantesDto);
+        // VALIDACIÓN DE LA OBTENCIÓN DE LOS DATOS
+        //System.out.println("Nombre: " + nombreEstudiante);
+        //System.out.println("Apellido: " + apellidoEstudiante);
+        //System.out.println("Email: " + emailEstudiante);
+        //System.out.println("password: " + passwordEstudiante);
+
+
+
+        estudiantesBusiness.create(estudiantesDto);
     }
 
     @PutMapping("/update")

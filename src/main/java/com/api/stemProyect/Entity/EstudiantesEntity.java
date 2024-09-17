@@ -5,8 +5,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+<<<<<<< HEAD
 
+=======
+import javax.swing.text.AbstractDocument;
+>>>>>>> cbbc06abc886c2d4e744c3963423aa5f232cd460
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 
 @NoArgsConstructor
@@ -32,7 +39,24 @@ public class EstudiantesEntity implements Serializable {
     @Column(name = "contraseña", nullable = false)
     private String contraseña;
 
-    @Column(name = "num_tutores", nullable = false)
+    @Column(name = "num_tutores")
     public Long num_tutores;
 
+<<<<<<< HEAD
+=======
+    @OneToOne(targetEntity = CarreraEntity.class)
+    private CarreraEntity carrera;
+
+    @ManyToMany(targetEntity = TutoriaEntity.class, fetch = FetchType.LAZY)
+    @JoinTable(name = "estudiantes_tutoria", joinColumns =  @JoinColumn(name = "fk_estudiante_id"), inverseJoinColumns = @JoinColumn(name = "fk_tutoria_id"))
+    private List<TutoriaEntity> tutoriaInscrita;
+
+    @ManyToMany(targetEntity = ContentEntity.class, fetch = FetchType.LAZY)
+    @JoinTable(name = "estudiante_contenido_favorito", joinColumns = @JoinColumn(name = "fk_estudiante_id"), inverseJoinColumns = @JoinColumn(name = "fk_content_id"))
+    private List<ContentEntity> contenidoGuardado;
+
+    private Set<ContentEntity> contenidos = new HashSet<>();
+
+
+>>>>>>> cbbc06abc886c2d4e744c3963423aa5f232cd460
 }
