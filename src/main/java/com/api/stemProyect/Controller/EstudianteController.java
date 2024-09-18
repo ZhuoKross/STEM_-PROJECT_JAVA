@@ -25,6 +25,7 @@ public class EstudianteController {
     @PostMapping("/create")
    // @CrossOrigin(origins = "http://localhost:5173", methods = {RequestMethod.POST})
     public void create(@RequestBody EstudiantesDto estudiantesDto){
+
         //String nombreEstudiante = estudiantesDto.getNombres();
         //String apellidoEstudiante = estudiantesDto.getApellidos();
         //String emailEstudiante = estudiantesDto.getEmail();
@@ -37,7 +38,7 @@ public class EstudianteController {
         //System.out.println("password: " + passwordEstudiante);
 
 
-        // LLAMADA AL BUSINESS
+
         estudiantesBusiness.create(estudiantesDto);
     }
 
