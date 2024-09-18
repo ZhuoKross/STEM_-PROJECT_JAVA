@@ -49,7 +49,6 @@ public class EstudiantesEntity implements Serializable {
     @JoinTable(name = "estudiante_contenido_favorito", joinColumns = @JoinColumn(name = "fk_estudiante_id"), inverseJoinColumns = @JoinColumn(name = "fk_content_id"))
     private List<ContentEntity> contenidoGuardado;
 
-    private Set<ContentEntity> contenidos = new HashSet<>();
 
 
 }

@@ -1,5 +1,8 @@
 package com.api.stemProyect.Service;
 
+
+import com.api.stemProyect.Dto.AssociateContentDTO;
+import com.api.stemProyect.Dto.ContentDTO;
 import com.api.stemProyect.Entity.ContentEntity;
 import com.api.stemProyect.Entity.EstudiantesEntity;
 import com.api.stemProyect.Repository.ContenRepository;
@@ -50,14 +53,18 @@ public class EstudiantesService implements Idao<EstudiantesEntity, Long>{
     }
 
     // Para la operación de Guardar contenidos Favoritos
-    public void saveContent (long idUser, Long idContent){
+    /*public void saveContent (){
 
-        EstudiantesEntity estudiante = estudiantesRepository.findById(idUser).orElseThrow();
-        ContentEntity content = contenRepository.findById(idContent).orElseThrow();
 
-        estudiante.getContenidos().add(content);
+        //Long idEstudiante = associateContentDTO.getId_estudiante();
+        //Long idContent = associateContentDTO.getId_content();
+
+        //EstudiantesEntity estudiante = estudiantesRepository.findById(idEstudiante).orElseThrow();
+        //ContentEntity content = contenRepository.findById(idContent).orElseThrow();
+
+        estudiante.getContenidoGuardado().add(content);
         estudiantesRepository.save(estudiante);
 
-    }
+    }*/
 
 }

@@ -1,5 +1,6 @@
 package com.api.stemProyect.Dto;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,13 +8,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ArticlePubMedDTO {
-
-    private String title;
-    private String Author;
-    private String Journal;
-    private String pmid;
-    private String Link;
+public class ContentDTO {
+    private Long id;
+    private String author;
+    private String journal;
+    private String link;
     private String summary;
+    private String title;
 
 }

@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter
 @Setter
 @Entity
@@ -17,11 +20,14 @@ public class ContentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String title;
     private String link;
     private String journal;
     private String summary;
     private String author;
+
+    @ManyToMany(mappedBy = "contenidoGuardado")
+
+    private Set<EstudiantesEntity> estudiantes = new HashSet<>();
 
 }

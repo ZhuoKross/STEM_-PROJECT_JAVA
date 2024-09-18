@@ -2,6 +2,7 @@ package com.api.stemProyect.Controller;
 
 
 import com.api.stemProyect.Business.EstudiantesBusiness;
+import com.api.stemProyect.Dto.AssociateContentDTO;
 import com.api.stemProyect.Dto.EstudiantesDto;
 import com.api.stemProyect.Entity.EstudiantesEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,20 @@ public class EstudianteController {
         // LLAMADA AL BUSINESS
         estudiantesBusiness.create(estudiantesDto);
     }
+
+    @PostMapping("/saveContent")
+    public void saveContent(@RequestBody AssociateContentDTO saveContentDTO){
+
+        Long id_estudiante = saveContentDTO.getId_estudiante();
+        Long id_content = saveContentDTO.getId_content();
+
+        System.out.println("id estudiante: " + id_estudiante);
+        System.out.println("id content a guardar: " + id_content);
+
+        estudiantesBusiness.saveContent(saveContentDTO);
+
+    }
+
 
     @PutMapping("/update")
     public void update(@RequestBody EstudiantesDto estudiantesDto){

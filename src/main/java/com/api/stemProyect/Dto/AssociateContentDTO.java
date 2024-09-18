@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SaveContentDTO {
+public class AssociateContentDTO {
 
     private Long id_estudiante;
     private Long id_content;

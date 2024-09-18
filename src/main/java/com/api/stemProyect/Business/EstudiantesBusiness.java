@@ -1,5 +1,10 @@
 package com.api.stemProyect.Business;
 
+
+import com.api.stemProyect.Dto.AssociateContentDTO;
+import com.api.stemProyect.Dto.ContentDTO;
+import com.api.stemProyect.Entity.ContentEntity;
+import com.api.stemProyect.Service.ContentService;
 import com.api.stemProyect.Service.EstudiantesService;
 import com.api.stemProyect.Dto.EstudiantesDto;
 import com.api.stemProyect.Entity.EstudiantesEntity;
@@ -15,6 +20,9 @@ public class EstudiantesBusiness {
 
     @Autowired
     private EstudiantesService estudiantesService;
+
+    @Autowired
+    private ContentService contentService;
     private final ModelMapper modelMapper = new ModelMapper();
 
     public List<EstudiantesDto> findAll(){
@@ -58,6 +66,26 @@ public class EstudiantesBusiness {
             estudiantesService.delete(entity);
         } catch (Exception e) {
             throw new Error("Error al eliminar Estudiante", e);
+        }
+    }
+
+
+    public void saveContent(AssociateContentDTO associateContentDTO){
+        try{
+
+            Long id_estudiante = associateContentDTO.getId_estudiante();
+            Long id_content = associateContentDTO.getId_content();
+
+            EstudiantesEntity estudiantesEntity = estudiantesService.getById(id_estudiante);
+            ContentEntity contentEntity = contentService.getById(id_content);
+
+            estudiantesEntity.getContenidoGuardado().add(contentEntity);
+
+            estudiantesService.save(estudiantesEntity);
+
+
+        }catch (Exception e){
+            throw new Error("Error al guardar Content(business)", e);
         }
     }
 }
