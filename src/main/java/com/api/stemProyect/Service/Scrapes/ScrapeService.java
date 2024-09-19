@@ -1,5 +1,6 @@
 package com.api.stemProyect.Service.Scrapes;
 
+import com.soundicly.jnanoidenhanced.jnanoid.NanoIdUtils;
 import org.jsoup.Jsoup;
 import com.api.stemProyect.Dto.ArticlePubMedDTO;
 import org.jsoup.nodes.Element;
@@ -16,6 +17,8 @@ public class ScrapeService {
 
     public List<ArticlePubMedDTO> scrapePubMed(String SearchTerm) throws IOException {
 
+
+
         List<ArticlePubMedDTO> listArticles = new ArrayList<>();
         String url = "https://pubmed.ncbi.nlm.nih.gov/?term=" + SearchTerm;
 
@@ -24,6 +27,7 @@ public class ScrapeService {
 
         for(Element result : articles){
 
+            String id = NanoIdUtils.randomNanoId();
             String title = result.select(".docsum-title").text();
             String author = result.select(".docsum-authors  ").text();
             String journal = result.select(".docsum-journal-citation").text();
@@ -31,7 +35,7 @@ public class ScrapeService {
             String link_article = "https://pubmed.ncbi.nlm.nih.gov/" + pmid;
             String summary = result.select(".full-view-snippet").text();
 
-            listArticles.add(new ArticlePubMedDTO(title, author, journal, pmid, link_article, summary));
+            listArticles.add(new ArticlePubMedDTO(id, title, author, journal, pmid, link_article, summary));
         }
 
         return listArticles;

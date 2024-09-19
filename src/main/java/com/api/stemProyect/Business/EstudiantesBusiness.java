@@ -74,7 +74,7 @@ public class EstudiantesBusiness {
         try{
 
             Long id_estudiante = associateContentDTO.getId_estudiante();
-            Long id_content = associateContentDTO.getId_content();
+            String id_content = associateContentDTO.getId_content();
 
             EstudiantesEntity estudiantesEntity = estudiantesService.getById(id_estudiante);
             ContentEntity contentEntity = contentService.getById(id_content);

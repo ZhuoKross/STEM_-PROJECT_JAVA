@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ContentDTO {
-    private Long id;
+
+    private String id;
     private String author;
     private String journal;
     private String link;

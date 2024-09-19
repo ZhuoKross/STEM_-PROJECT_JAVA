@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ArticlePubMedDTO {
 
+    private String id;
     private String title;
     private String Author;
     private String Journal;

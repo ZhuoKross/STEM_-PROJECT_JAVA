@@ -10,37 +10,37 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ContentService implements Idao<ContentEntity, Long> {
+public class ContentService{
     @Autowired
     ContenRepository contenRepository;
 
-    @Override
+
     public List<ContentEntity> findAll (){
         return contenRepository.findAll();
     }
 
-    @Override
-    public ContentEntity getById(Long idContent) {
+
+    public ContentEntity getById(String idContent) {
         Optional<ContentEntity> optionalContent = contenRepository.findById(idContent);
         return  optionalContent.orElse(null);
     }
 
-    @Override
+
     public void update(ContentEntity entity) {
         contenRepository.save(entity);
     }
 
-    @Override
+
     public void save(ContentEntity entity) {
         contenRepository.save(entity);
     }
 
-    @Override
+
     public void delete(ContentEntity entity) {
         contenRepository.delete(entity);
     }
 
-    @Override
+
     public void create(ContentEntity entity) {
         contenRepository.save(entity);
     }

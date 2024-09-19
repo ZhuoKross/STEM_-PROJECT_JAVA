@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 public class AssociateContentDTO {
 
     private Long id_estudiante;
-    private Long id_content;
+    private String id_content;
 
 }

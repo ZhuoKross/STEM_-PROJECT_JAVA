@@ -18,12 +18,17 @@ import java.util.Set;
 public class ContentEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
+
     private String title;
+
     private String link;
+
     private String journal;
+
+    @Column(name = "summary", length = 500)
     private String summary;
+
     private String author;
 
     @ManyToMany(mappedBy = "contenidoGuardado")

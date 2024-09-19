@@ -21,6 +21,7 @@ configurations {
 
 repositories {
 	mavenCentral()
+	maven { url 'https://jitpack.io' }
 }
 
 dependencies {
@@ -36,8 +37,11 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.2.0'
 	implementation 'org.jsoup:jsoup:1.18.1'
+	implementation 'com.soundicly:jnanoid-enhanced:main-SNAPSHOT'
 
 }
+
+
 
 tasks.named('test') {
 	useJUnitPlatform()

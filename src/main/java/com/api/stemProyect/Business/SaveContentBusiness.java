@@ -51,7 +51,7 @@ public class SaveContentBusiness {
         }
     }
 
-    public void update(Long id,ContentDTO contentDTO){
+    public void update(String id,ContentDTO contentDTO){
         try {
 
             //System.out.println("El id es: " + id);

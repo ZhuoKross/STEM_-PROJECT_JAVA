@@ -20,10 +20,32 @@ public class ContentController {
     public List<ContentDTO> getAll() {return saveContentBusiness.findAll();}
 
     @PostMapping("/create")
-    public void create(@RequestBody ContentDTO contentDTO){saveContentBusiness.create(contentDTO);}
+    public void create(@RequestBody ContentDTO contentDTO){
+
+
+        String idArticle = contentDTO.getId();
+        String authorArticle = contentDTO.getAuthor();
+        String summaryArticle = contentDTO.getSummary();
+        String linkArticle = contentDTO.getLink();
+        String titleArticle = contentDTO.getTitle();
+        String journalArticle = contentDTO.getJournal();
+
+
+        System.out.println("id: " + idArticle);
+        System.out.println("author: " + authorArticle);
+        System.out.println("summary: " + summaryArticle);
+        System.out.println("link: " + linkArticle);
+        System.out.println("title: " + titleArticle);
+        System.out.println("journal: " + journalArticle);
+
+
+
+
+        saveContentBusiness.create(contentDTO);
+    }
 
     @PutMapping("/update/{id}")
-    public void update(@PathVariable Long id,@RequestBody ContentDTO contentDTO){saveContentBusiness.update(id,contentDTO);}
+    public void update(@PathVariable String id,@RequestBody ContentDTO contentDTO){saveContentBusiness.update(id,contentDTO);}
 
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable("id") ContentEntity contentEntity){saveContentBusiness.delete(contentEntity);}

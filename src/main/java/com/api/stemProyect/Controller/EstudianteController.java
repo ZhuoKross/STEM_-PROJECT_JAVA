@@ -46,7 +46,7 @@ public class EstudianteController {
     public void saveContent(@RequestBody AssociateContentDTO saveContentDTO){
 
         Long id_estudiante = saveContentDTO.getId_estudiante();
-        Long id_content = saveContentDTO.getId_content();
+        String id_content = saveContentDTO.getId_content();
 
         System.out.println("id estudiante: " + id_estudiante);
         System.out.println("id content a guardar: " + id_content);
