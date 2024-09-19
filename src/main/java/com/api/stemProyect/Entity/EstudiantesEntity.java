@@ -5,11 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-<<<<<<< HEAD
 
-=======
-import javax.swing.text.AbstractDocument;
->>>>>>> cbbc06abc886c2d4e744c3963423aa5f232cd460
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
@@ -42,8 +38,7 @@ public class EstudiantesEntity implements Serializable {
     @Column(name = "num_tutores")
     public Long num_tutores;
 
-<<<<<<< HEAD
-=======
+
     @OneToOne(targetEntity = CarreraEntity.class)
     private CarreraEntity carrera;
 
@@ -57,5 +52,4 @@ public class EstudiantesEntity implements Serializable {
 
 
 
->>>>>>> cbbc06abc886c2d4e744c3963423aa5f232cd460
 }
