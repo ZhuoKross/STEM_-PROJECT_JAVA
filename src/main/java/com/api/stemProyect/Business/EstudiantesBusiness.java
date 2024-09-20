@@ -41,6 +41,28 @@ public class EstudiantesBusiness {
         }
     }
 
+
+    public List<ContentDTO> findAssociatedContents (Long id){
+        try{
+
+            List<ContentEntity> contentEntityList = estudiantesService.findAssociatedContents(id);
+            List<ContentDTO> contentDTOList = new ArrayList<>();
+
+            for (ContentEntity content : contentEntityList){
+                contentDTOList.add(modelMapper.map(content, ContentDTO.class));
+            }
+
+
+            return contentDTOList;
+
+
+        }catch (Exception e){
+            throw new Error("Error al traer contenidos Asociados (Business): ", e);
+        }
+    }
+
+
+
     public void create(EstudiantesDto estudiantesDto){
         try{
             EstudiantesEntity estudiante = modelMapper.map(estudiantesDto, EstudiantesEntity.class);

@@ -19,6 +19,7 @@ public class ContentController {
     @GetMapping("/all")
     public List<ContentDTO> getAll() {return saveContentBusiness.findAll();}
 
+
     @PostMapping("/create")
     public void create(@RequestBody ContentDTO contentDTO){
 

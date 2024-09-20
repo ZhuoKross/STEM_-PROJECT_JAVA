@@ -3,6 +3,7 @@ package com.api.stemProyect.Controller;
 
 import com.api.stemProyect.Business.EstudiantesBusiness;
 import com.api.stemProyect.Dto.AssociateContentDTO;
+import com.api.stemProyect.Dto.ContentDTO;
 import com.api.stemProyect.Dto.EstudiantesDto;
 import com.api.stemProyect.Entity.EstudiantesEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,11 @@ public class EstudianteController {
     @GetMapping("/all")
     public List<EstudiantesDto> getAll(){
         return estudiantesBusiness.findAll();
+    }
+
+    @GetMapping("/fetchContent/{id}")
+    public List<ContentDTO> getAllContent (@PathVariable("id") Long id){
+        return estudiantesBusiness.findAssociatedContents(id);
     }
 
     @PostMapping("/create")

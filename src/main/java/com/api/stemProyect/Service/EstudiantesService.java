@@ -33,6 +33,11 @@ public class EstudiantesService implements Idao<EstudiantesEntity, Long>{
         return optionalEstudiantesEntity.orElse(null);
     }
 
+    //MÉTODO PARA ENCONTRAR CONTENIDOS ASOCIADOS
+    public List<ContentEntity> findAssociatedContents (Long id){
+        return estudiantesRepository.findAssociatedContents(id);
+    }
+
     @Override
     public void update(EstudiantesEntity entity){
         this.estudiantesRepository.save(entity);
